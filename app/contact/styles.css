@@ -7,6 +7,10 @@
     width: 80%;
 }
 
+.content-form-animate, .content-map-animate{
+    width: 45%;
+}
+
 @media screen and (max-width:850px){
     .content-contact{
         flex-direction: column;

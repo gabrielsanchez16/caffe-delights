@@ -1,8 +1,11 @@
+'use client'
+
 import "./styles.css"
 import { FormEvent, useRef, useState } from "react"
 import emailjs from '@emailjs/browser';
 import { useRouter } from "next/navigation";
 import { BeatLoader } from "react-spinners";
+import { motion } from "framer-motion";
 
 
 export default function FormContact() {
