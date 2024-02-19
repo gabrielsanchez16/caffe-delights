@@ -1,0 +1,14 @@
+.content-map-view{
+    width: 45%;
+}
+
+.content-map-view div:first-child{
+    border-radius: 15px;
+}
+
+@media screen and (max-width:850px){
+    .content-map-view{
+        width: 100%;
+        margin: 7rem 0;
+    }
+}

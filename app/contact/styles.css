@@ -1,0 +1,16 @@
+.content-contact{
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%;
+}
+
+@media screen and (max-width:850px){
+    .content-contact{
+        flex-direction: column;
+        justify-content: center;
+        width: 95%;
+    }
+}
