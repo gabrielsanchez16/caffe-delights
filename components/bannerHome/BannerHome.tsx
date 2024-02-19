@@ -1,22 +1,23 @@
 'use client'
+
 import { motion } from "framer-motion"
 import "./styles.css"
 
 export default function BannerHome() {
 
-    const mouseScrollButton: HTMLElement | null = document.querySelector(".btn-know-us");
-
-    // Verificar si se encontró el elemento
-    if (mouseScrollButton) {
-        // Agregar un event listener al hacer clic en el botón
-        mouseScrollButton.addEventListener("click", function () {
-            // Hacer scroll suavemente hasta el elemento con el id "about"
-            window.scrollTo({
-                top: (document.querySelector("#main") as HTMLElement).offsetTop,
-                behavior: "smooth"
+    if (typeof document !== 'undefined') {
+        const mouseScrollButton: HTMLElement | null = document.querySelector(".btn-know-us");
+    
+        if (mouseScrollButton) {
+            mouseScrollButton.addEventListener("click", function() {
+                window.scrollTo({
+                    top: (document.querySelector("#main") as HTMLElement).offsetTop,
+                    behavior: "smooth"
+                });
             });
-        });
+        }
     }
+
 
     return (
         <div className="contain-banner-home">
