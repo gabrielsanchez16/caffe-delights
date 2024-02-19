@@ -17,4 +17,7 @@
         justify-content: center;
         width: 95%;
     }
+    .content-form-animate, .content-map-animate{
+        width: 100%;
+    }
 }
