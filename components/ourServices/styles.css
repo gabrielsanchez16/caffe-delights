@@ -15,26 +15,27 @@
     justify-content: space-between;
 }
 
-.our-services article{
+.our-services .article{
     display: flex;
     flex-direction: column;
     gap: .5rem;
     align-items: center;
+    justify-content: flex-start;
     width: 28%;
 }
 
-.our-services article img{
+.our-services .article img{
     width: 100% !important;
     border-radius: 15px;
     height: 300px;
     object-fit: cover;
 }
 
-.our-services article p{
+.our-services .article p{
     text-align: center;
 }
 
-.our-services article p span{
+.our-services .article p span{
     font-weight: bold;
 }
 
@@ -52,7 +53,7 @@
        align-items: center;
     }
     
-    .our-services article{
+    .our-services .article{
         width: 100%;
     }
 }

@@ -2,6 +2,8 @@ import "./styles.css"
 import { FormEvent, useRef, useState } from "react"
 import emailjs from '@emailjs/browser';
 import { useRouter } from "next/navigation";
+import { BeatLoader } from "react-spinners";
+
 
 export default function FormContact() {
 
@@ -12,7 +14,8 @@ export default function FormContact() {
     const [phone, setPhone] = useState<string>("")
     const [message, setMessage] = useState<string>("")
     const [errMessage, setErrMessage] = useState<string>("")
-    const [success, setSuccess] = useState("")
+    const [success, setSuccess] = useState<string>("")
+    const [loading, setLoading] = useState<boolean>(false)
 
     const templateParams = {
         name:name,
@@ -29,12 +32,14 @@ export default function FormContact() {
                 setErrMessage("")
             }, 3000);
         } else if(form.current){
+            setLoading(true)
             try {
                 await emailjs.sendForm('service_je8i61q', 'template_x6tqblb', form.current, {
                     publicKey: 'NIrtyIx-h76vAmDMx',
                 });
                 console.log('SUCCESS!',templateParams);
                 setSuccess("Enviado Correctamente")
+                setLoading(false)
                 setTimeout(() => {
                     setSuccess("")
                     push("/")
@@ -44,6 +49,7 @@ export default function FormContact() {
             } catch (error: any) {
                 console.log('FAILED...', error.text);
                 setErrMessage("Error al enviar el correo")
+                setLoading(false)
                 setTimeout(() => {
                     setErrMessage("")
                 }, 3000);
@@ -78,7 +84,17 @@ export default function FormContact() {
                     {success}
                 </p>
             }
-            <input type="submit" value="¡Hablanos!" />
+            <BeatLoader
+             loading={loading}
+             style={{margin:"1rem auto"}}
+             color="#EE8E11"
+             size={30}
+            />
+            {
+                !loading &&
+                <input type="submit" value="¡Hablanos!" />
+            }
+            
 
         </form>
     )

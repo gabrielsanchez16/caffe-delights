@@ -5,6 +5,7 @@ import "./styles.css"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 export default function Nav() {
 
@@ -14,7 +15,12 @@ export default function Nav() {
     return (
 
         <>
-            <nav className="nav">
+
+            <motion.div
+                animate={{ x: 0, y:0 }}
+                initial={{x:-100 ,y:-150}}
+                transition={{ ease: "easeOut", duration: 1 }}
+                className="nav">
                 <div className="contain-logo-nav">
                     <Image src={"/assets/logo-white.png"} alt="Logo Caffe delicias" width={40} height={40} />
                     <p>Café <span>delicias</span></p>
@@ -39,7 +45,7 @@ export default function Nav() {
                 </span>
 
 
-            </nav>
+            </motion.div>
             {
                 hamburguer &&
                 <div className="modal" >
@@ -57,12 +63,12 @@ export default function Nav() {
                         </div>
 
                         <ul className="list-mobile">
-                            <li >
+                            <li onClick={()=>{setHamburguer(false)}}>
                                 <Link href="/" className={`${pathname === "/" ? "active-link" : ""}`}>
                                     Inicio
                                 </Link>
                             </li>
-                            <li >
+                            <li onClick={()=>{setHamburguer(false)}}>
                                 <Link href="/contact" className={`${pathname === "/contact" ? "active-link" : ""}`}>
                                     Contacto
                                 </Link>
