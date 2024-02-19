@@ -4,6 +4,20 @@ import "./styles.css"
 
 export default function BannerHome() {
 
+    const mouseScrollButton: HTMLElement | null = document.querySelector(".btn-know-us");
+
+    // Verificar si se encontró el elemento
+    if (mouseScrollButton) {
+        // Agregar un event listener al hacer clic en el botón
+        mouseScrollButton.addEventListener("click", function () {
+            // Hacer scroll suavemente hasta el elemento con el id "about"
+            window.scrollTo({
+                top: (document.querySelector("#main") as HTMLElement).offsetTop,
+                behavior: "smooth"
+            });
+        });
+    }
+
     return (
         <div className="contain-banner-home">
             <div className="effect-glass-black">
@@ -39,7 +53,7 @@ export default function BannerHome() {
                     initial={{ y: 400 }}
                     transition={{ ease: "easeOut", duration: 1 }}>
                     <div className="btn-know-us">
-                        <a href="/#main">
+                        <a >
                             <span>Conocenos</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width={50} strokeWidth={1} stroke="#ffff" className="w-4 h-4">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />

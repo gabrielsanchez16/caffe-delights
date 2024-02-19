@@ -12,13 +12,15 @@ export default function Nav() {
     const pathname = usePathname()
     const [hamburguer, setHamburguer] = useState(false)
 
+    
+
     return (
 
         <>
 
             <motion.div
-                animate={{ x: 0, y:0 }}
-                initial={{x:-100 ,y:-150}}
+                animate={{ x: 0, y: 0 }}
+                initial={{ x: -100, y: -150 }}
                 transition={{ ease: "easeOut", duration: 1 }}
                 className="nav">
                 <div className="contain-logo-nav">
@@ -63,12 +65,12 @@ export default function Nav() {
                         </div>
 
                         <ul className="list-mobile">
-                            <li onClick={()=>{setHamburguer(false)}}>
+                            <li onClick={() => { setHamburguer(false) }}>
                                 <Link href="/" className={`${pathname === "/" ? "active-link" : ""}`}>
                                     Inicio
                                 </Link>
                             </li>
-                            <li onClick={()=>{setHamburguer(false)}}>
+                            <li onClick={() => { setHamburguer(false) }}>
                                 <Link href="/contact" className={`${pathname === "/contact" ? "active-link" : ""}`}>
                                     Contacto
                                 </Link>
