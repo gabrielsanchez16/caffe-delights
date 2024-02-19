@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function FormContact() {
 
     const {push}=useRouter()
-    const form = useRef<HTMLFormElement>();
+    const form = useRef<HTMLFormElement>(null);
     const [name, setName] = useState<string>("")
     const [email, setEmail] = useState<string>("")
     const [phone, setPhone] = useState<string>("")
@@ -28,7 +28,7 @@ export default function FormContact() {
             setTimeout(() => {
                 setErrMessage("")
             }, 3000);
-        } else {
+        } else if(form.current){
             try {
                 await emailjs.sendForm('service_je8i61q', 'template_x6tqblb', form.current, {
                     publicKey: 'NIrtyIx-h76vAmDMx',
