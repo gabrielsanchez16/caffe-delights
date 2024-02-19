@@ -1,6 +1,5 @@
 import Image from "next/image";
 import "./styles.css"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
 

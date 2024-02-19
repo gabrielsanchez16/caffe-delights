@@ -10,7 +10,6 @@ export default function Nav() {
 
     const pathname = usePathname()
     const [hamburguer, setHamburguer] = useState(false)
-    console.log(pathname === "/" ? "active-link" : "")
 
     return (
 
